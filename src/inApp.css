@@ -1,0 +1,69 @@
+@font-face {
+    font-family: poppins;
+    src: url('./assets/Poppins-Regular.ttf')
+}
+
+* {
+    font-family: poppins;;
+}
+
+body { 
+    background-color: black;
+    /* background-image:url('./assets/bg.jpg');
+    width: "auto";
+    height: "100%"; */
+    color: white;
+}
+
+#navlogo {
+    height: 40px;
+    width: auto;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.button {
+    background-color: #EA63A5;
+    border-color: #EA63A5;
+}
+
+.home-pink {
+    color: #EA63A5;
+}
+
+
+#logo-parent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home-logo {
+    height: 200px;
+    width: auto;
+}
+
+#slogan-right {
+    display: flex;
+    justify-content: right;
+}
+
+.nav-link{
+    text-decoration-color: antiquewhite !important;
+    color: #EA63A5 
+}
+
+.text-pink {
+    color:#EA63A5;
+}
+
+#DEL-rev-modal {
+    color: black;
+}
+
+#EDIT-rev-modal {
+    color: black;
+}
