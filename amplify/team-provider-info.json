@@ -10,6 +10,14 @@
       "StackName": "amplify-marketanon-dev-fa7f6",
       "StackId": "arn:aws:cloudformation:us-east-2:339712768863:stack/amplify-marketanon-dev-fa7f6/ffefaa40-1321-11ef-9a27-02da1819e305",
       "AmplifyAppId": "d1h6bes35temim"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1h6bes35temim",
+          "type": "manual"
+        }
+      }
     }
   }
 }

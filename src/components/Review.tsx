@@ -76,10 +76,12 @@ export default function Review({ review, currentUser, flashMessage, companyName 
         <Card className='my-2' bg='dark' text='white'>
             <Card.Header>
                 <Card.Title>{review.title} | ID: #{review.id} </Card.Title>
+                <Card.Subtitle className="mb-1 text-pink">{companyName}</Card.Subtitle>
                 <Card.Subtitle className="mb-1 text-pink">{review.author.username}</Card.Subtitle>
             </Card.Header>
             <Card.Body>
                 <Card.Text className="">{review.body}</Card.Text>
+                <Card.Text className="text-pink">{review.rating} Stars</Card.Text>
             </Card.Body>
             <Row className='mb-1 p-3' >
                 <Col lg={6} className='w-50'>

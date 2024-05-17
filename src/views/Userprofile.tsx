@@ -3,9 +3,9 @@ import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import { UserBuyerType, ReviewType, CategoryType } from '../types'
 import { useEffect, useState } from 'react'
-import { getAllReviews } from '../lib/apiWrapper'
+import { getAllReviews, getReviewsByCompany } from '../lib/apiWrapper'
 import Review from '../components/Review'
-// import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 type UserprofileProps = {
   currentUser: UserBuyerType|null,
@@ -18,8 +18,29 @@ export default function Userprofile({ currentUser, flashMessage }: UserprofilePr
   const company = currentUser?.company
   const name = currentUser?.firstName
   //const user_id = currentUser?.id
-  // const { companyName } = useParams()
   const [reviews, setReviews] = useState<ReviewType[]>([])
+  //const [fetchReviewData, setFetchReviewData] = useState(true);
+
+  const { companyName } = useParams();
+
+  // This useEffect is allowing no errors for companyName being passed in as param inside of <Review /> 
+  // To be able to use or display companyName, will potentially need to write new API route to get company name via vendor_id 
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getReviewsByCompany(companyName!); 
+      console.log(response.data)
+      if (response.data) {
+        let reviews = response.data;
+        // console.log(reviews)
+        setReviews(reviews)
+      }
+    }
+    fetchData()
+  }, []) 
+
+
+
+
 
   useEffect(() => {
       async function fetchData() {
@@ -73,7 +94,7 @@ export default function Userprofile({ currentUser, flashMessage }: UserprofilePr
         </Card>
     </Row>
     <Row>
-      {revs.map( r => <Review key={r.id} review={r} flashMessage={flashMessage} currentUser={currentUser} />)}
+      {revs.map( r => <Review key={r.id} review={r} flashMessage={flashMessage} currentUser={currentUser} companyName={companyName!}/>)}
     </Row>
     </>
   )}
